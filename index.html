@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر خطوة إلى الأمام | أحذية فاخرة</title>
+    <style>
+        /* --- التنسيقات العامة واللون الأسود والذهبي الاحترافي --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            padding: 20px 10px;
+        }
+
+        /* الهيدر والعنوان */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding: 20px;
+            border-bottom: 2px solid #d4af37;
+            background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+            border-radius: 10px;
+        }
+
+        header h1 {
+            color: #d4af37;
+            font-size: 30px;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        header p {
+            color: #cccccc;
+            font-size: 15px;
+        }
+
+        /* شبكة عرض المنتجات */
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        /* بطاقة المنتج الفردية */
+        .product-card {
+            background-color: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            width: 310px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 15px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            border-color: #d4af37;
+        }
+
+        /* صورة المنتج */
+        .product-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-bottom: 1px solid #282828;
+        }
+
+        /* تفاصيل المنتج */
+        .product-details {
+            width: 100%;
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            background-color: #0a0a0a;
+            padding: 9px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border: 1px solid #222222;
+        }
+
+        .info-label {
+            color: #aaaaaa;
+            font-size: 14px;
+        }
+
+        .info-value {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* خانة الكمية */
+        .qty-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #0a0a0a;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #222222;
+        }
+
+        .qty-box label {
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .qty-box input {
+            width: 70px;
+            padding: 6px;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            outline: none;
+        }
+
+        /* زر الواتساب */
+        .btn-whatsapp {
+            display: block;
+            width: 95%;
+            margin: 0 auto;
+            background-color: #25D366;
+            color: #ffffff;
+            text-align: center;
+            padding: 12px 0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border: none;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1eb954;
+        }
+
+        .btn-whatsapp:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>متجر خطوة إلى الأمام 👟</h1>
+        <p>تشكيلة الأحذية الفاخرة - اطلب مباشرة عبر الواتساب</p>
+    </header>
+
+    <div class="products-container">
+
+        <!-- منتج 1 (shoe3.jpg) -->
+        <div class="product-card">
+            <img src="shoe3.jpg" alt="حذاء">
+            <div class="product-details">
+                <div class="info-row">
+                    <span class="info-label">رقم الكود:</span>
+                    <span class="info-value">1015</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">السعر:</span>
+                    <span class="info-value">150 د.ل</span>
+                </div>
+                <div class="qty-box">
+                    <label for="qty-shoe3">الكمية المطلوبة:</label>
+                    <input type="number" id="qty-shoe3" value="1" min="1" max="100">
+                </div>
+                <button class="btn-whatsapp" onclick="sendWhatsApp('1015', '150 د.ل', 'qty-shoe3')">طلب عبر الواتساب 📲</button>
+            </div>
+        </div>
+
+        <!-- منتج 2 (shoe4.jpg) -->
+        <div class="product-card">
+            <img src="shoe4.jpg" alt="حذاء">
+            <div class="product-details">
+                <div class="info-row">
+                    <span class="info-label">رقم الكود:</span>
+                    <span class="info-value">1015</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">السعر:</span>
+                    <span class="info-value">150 د.ل</span>
+                </div>
+                <div class="qty-box">
+                    <label for="qty-shoe4">الكمية المطلوبة:</label>
+                    <input type="number" id="qty-shoe4" value="1" min="1" max="100">
+                </div>
+                <button class="btn-whatsapp" onclick="sendWhatsApp('1015', '150 د.ل', 'qty-shoe4')">طلب عبر الواتساب 📲</button>
+            </div>
+        </div>
+
+        <!-- منتج 3 (shoe5.jpg) -->
+        <div class="product-card">
+            <img src="shoe5.jpg" alt="حذاء">
+            <div class="product-details">
+                <div class="info-row">
+                    <span class="info-label">رقم الكود:</span>
+                    <span class="info-value">1015</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">السعر:</span>
+                    <span class="info-value">150 د.ل</span>
+                </div>
+                <div class="qty-box">
+                    <label for="qty-shoe5">الكمية المطلوبة:</label>
+                    <input type="number" id="qty-shoe5" value="1" min="1" max="100">
+                </div>
+                <button class="btn-whatsapp" onclick="sendWhatsApp('1015', '150 د.ل', 'qty-shoe5')">طلب عبر الواتساب 📲</button>
+            </div>
+        </div>
+
+        <!-- منتج 4 (shoe6.jpg) -->
+        <div class="product-card">
+            <img src="shoe6.jpg" alt="حذاء">
+            <div class="product-details">
+                <div class="info-row">
+                    <span class="info-label">رقم الكود:</span>
+                    <span class="info-value">1013</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">السعر:</span>
+                    <span class="info-value">130 د.ل</span>
+                </div>
+                <div class="qty-box">
+                    <label for="qty-shoe6">الكمية المطلوبة:</label>
+                    <input type="number" id="qty-shoe6" value="1" min="1" max="100">
+                </div>
+                <button class="btn-whatsapp" onclick="sendWhatsApp('1013', '130 د.ل', 'qty-shoe6')">طلب عبر الواتساب 📲</button>
+            </div>
+        </div>
+
+        <!-- منتج 5 (shoe7.jpg) -->
+        <div class="product-card">
+            <img src="shoe7.jpg" alt="حذاء">
+            <div class="product-details">
+                <div class="info-row">
+                    <span class="info-label">رقم الكود:</span>
+                    <span class="info-value">1036</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">السعر:</span>
+                    <span class="info-value">130 د.ل</span>
+                </div>
+                <div class="qty-box">
+                    <label for="qty-shoe7">الكمية المطلوبة:</label>
+                    <input type="number" id="qty-shoe7" value="1" min="1" max="100">
+                </div>
+                <button class="btn-whatsapp" onclick="sendWhatsApp('1036', '130 د.ل', 'qty-shoe7')">طلب عبر الواتساب 📲</button>
+            </div>
+        </div>
+
+        <!-- منتج 6 (shoe8.jpg) -->
+        <div class="product-card">
+            <img src="shoe8.jpg" alt="حذاء">
+            <div class="product-details">
+                <div class="info-row">
+                    <span class="info-label">رقم الكود:</span>
+                    <span class="info-value">1036</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">السعر:</span>
+                    <span class="info-value">130 د.ل</span>
+                </div>
+                <div class="qty-box">
+                    <label for="qty-shoe8">الكمية المطلوبة:</label>
+                    <input type="number" id="qty-shoe8" value="1" min="1" max="100">
+                </div>
+                <button class="btn-whatsapp" onclick="sendWhatsApp('1036', '130 د.ل', 'qty-shoe8')">طلب عبر الواتساب 📲</button>
+            </div>
+        </div>
+
+        <!-- منتج 7 (shoe9.jpg) -->
+        <div class="product-card">
+            <img src="shoe9.jpg" alt="حذاء">
+            <div class="product-details">
+                <div class="info-row">
+                    <span class="info-label">رقم الكود:</span>
+                    <span class="info-value">1036</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">السعر:</span>
+                    <span class="info-value">130 د.ل</span>
+                </div>
+                <div class="qty-box">
+                    <label for="qty-shoe9">الكمية المطلوبة:</label>
+                    <input type="number" id="qty-shoe9" value="1" min="1" max="100">
+                </div>
+                <button class="btn-whatsapp" onclick="sendWhatsApp('1036', '130 د.ل', 'qty-shoe9')">طلب عبر الواتساب 📲</button>
+            </div>
+        </div>
+
+        <!-- منتج 8 (shoe12.jpg) -->
+        <div class="product-card">
+            <img src="shoe12.jpg" alt="حذاء">
+            <div class="product-details">
+                <div class="info-row">
+                    <span class="info-label">رقم الكود:</span>
+                    <span class="info-value">1030</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">السعر:</span>
+                    <span class="info-value">130 د.ل</span>
+                </div>
+                <div class="qty-box">
+                    <label for="qty-shoe12">الكمية المطلوبة:</label>
+                    <input type="number" id="qty-shoe12" value="1" min="1" max="100">
+                </div>
+                <button class="btn-whatsapp" onclick="sendWhatsApp('1030', '130 د.ل', 'qty-shoe12')">طلب عبر الواتساب 📲</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- دالة الجافاسكربت لإرسال الواتساب لكل منتج بدقة -->
+    <script>
+        function sendWhatsApp(code, price, qtyInputId) {
+            var qty = document.getElementById(qtyInputId).value;
+            if(!qty || qty < 1) {
+                qty = 1;
+            }
+
+            // الرقم الجديد لصاحب المحل من الصورة
+            var phone = "218926192882";
+            var text = "مرحباً، أريد طلب هذا المنتج:%0A" +
+                       "- رقم الكود: " + code + "%0A" +
+                       "- السعر: " + price + "%0A" +
+                       "- الكمية: " + qty;
+
+            window.open("https://wa.me/" + phone + "?text=" + text, "_blank");
+        }
+    </script>
+</body>
+</html>
