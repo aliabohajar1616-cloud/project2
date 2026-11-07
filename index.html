@@ -21,9 +21,13 @@
             margin-bottom: 30px;
         }
         header h1 {
-            color: #ffffff;
-            font-size: 2rem;
+            color: #d4af37;
+            font-size: 2.2rem;
             margin-bottom: 10px;
+        }
+        header p {
+            color: #d4af37;
+            opacity: 0.9;
         }
         .container {
             display: grid;
@@ -51,13 +55,16 @@
         }
         .card h3 {
             font-size: 1.2rem;
-            color: #ffffff;
+            color: #d4af37;
             margin-bottom: 8px;
         }
         .card p {
             font-size: 0.95rem;
             color: #b0b0b0;
             margin-bottom: 5px;
+        }
+        .card p strong {
+            color: #d4af37;
         }
         .form-group {
             margin-top: 10px;
@@ -66,9 +73,9 @@
             display: block;
             font-size: 0.85rem;
             margin-bottom: 3px;
-            color: #ccc;
+            color: #d4af37;
         }
-        .form-group input, .form-group select {
+        .form-group input {
             width: 100%;
             padding: 8px;
             border-radius: 5px;
@@ -97,8 +104,8 @@
 <body>
 
     <header>
-        <h1>خطوة إلى الأمام </h1>
-        <p>اختر منتجك، أدخل بياناتك، واطلب مباشرة عبر الواتساب</p>
+        <h1>خطوة إلى الأمام (Khotwa Shoes)</h1>
+        <p>اختر منتجك، أدخل بياناتك والكمية المطلوبة، واطلب مباشرة عبر الواتساب</p>
     </header>
 
     <div class="container" id="products-container">
@@ -118,7 +125,7 @@
             { id: 10, name: "حذاء كاجوال خفيف", code: "1030", color: "أبيض أزرق", price: "130 دينار", image: "shoe10.jpg" },
             { id: 11, name: "حذاء رياضي عصري", code: "1034", color: "أبيض رمادي", price: "130 دينار", image: "shoe11.jpg" },
             { id: 13, name: "حذاء كاجوال خفيف", code: "1034", color: "أبيض + أسود", price: "130 دينار", image: "shoe13.jpg" },
-            { id: 14, name: "حذاء سبورت خفيف", code: "1034", color: "أبيض رمادي", price: "130 دينار", image: "shoe14.jpg" },
+            { id: 14, name: "حذاء سبورت خفيف", code: "1033", color: "أبيض رمادي", price: "130 دينار", image: "shoe14.jpg" },
             { id: 16, name: "حذاء بوت مرتفع", code: "1020", color: "رمادي / رصاصي", price: "130 دينار", image: "shoe16.jpg" },
             { id: 17, name: "حذاء بوت سبورت", code: "1020", color: "أسود سبورت", price: "130 دينار", image: "shoe17.jpg" },
             { id: 18, name: "حذاء عصري مميز", code: "1030", color: "أبيض أسود", price: "130 دينار", image: "shoe18.jpg" },
@@ -154,16 +161,8 @@
                 '</div>' +
                 '<div>' +
                     '<div class="form-group">' +
-                        '<label>المقاس المطلوب *</label>' +
-                        '<select id="size-' + product.id + '" required>' +
-                            '<option value="">اختر المقاس</option>' +
-                            '<option value="40">40</option>' +
-                            '<option value="41">41</option>' +
-                            '<option value="42">42</option>' +
-                            '<option value="43">43</option>' +
-                            '<option value="44">44</option>' +
-                            '<option value="45">45</option>' +
-                        '</select>' +
+                        '<label>الكمية المطلوبة *</label>' +
+                        '<input type="number" id="qty-' + product.id + '" value="1" min="1" required>' +
                     '</div>' +
                     '<div class="form-group">' +
                         '<label>الاسم الثلاثي *</label>' +
@@ -184,18 +183,18 @@
 
         function sendOrder(id) {
             const product = products.find(p => p.id === id);
-            const size = document.getElementById("size-" + id).value;
+            const qty = document.getElementById("qty-" + id).value.trim();
             const name = document.getElementById("name-" + id).value.trim();
             const phone = document.getElementById("phone-" + id).value.trim();
             const address = document.getElementById("address-" + id).value.trim();
 
-            if (!size || !name || !phone || !address) {
-                alert("الرجاء تعبئة جميع الحقول الإجبارية (المقاس، الاسم، الهاتف، العنوان)!");
+            if (!qty || !name || !phone || !address) {
+                alert("الرجاء تعبئة جميع الحقول الإجبارية (الكمية، الاسم، الهاتف، العنوان)!");
                 return;
             }
 
-            const currentDomain = window.location.origin;
-            const imageUrl = currentDomain + "/" + product.image;
+            // رابط الصورة الصحيح الذي يظهر مباشرة بدون خطأ 404
+            const imageUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1) + product.image;
 
             const message = "طلب حذاء جديد - متجر خطوة إلى الأمام\n\n" +
                 "رابط الصورة: " + imageUrl + "\n" +
@@ -203,8 +202,7 @@
                 "كود المنتج: " + product.code + "\n" +
                 "اللون: " + product.color + "\n" +
                 "السعر: " + product.price + "\n" +
-                "المقاس الإجباري: " + size + "\n" +
-                "الكمية: 1\n" +
+                "الكمية المطلوبة: " + qty + "\n" +
                 "الاسم الثلاثي: " + name + "\n" +
                 "رقم الهاتف: " + phone + "\n" +
                 "العنوان الإجباري: " + address;
