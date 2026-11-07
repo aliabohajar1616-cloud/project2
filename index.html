@@ -3,166 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر خطوة إلى الأمام | Khotwa Shoes</title>
+    <title>متجر خطوة إلى الأمام - Khotwa Shoes</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: Tahoma, Arial, sans-serif; background-color: #1a1a1a; color: #ffffff; direction: rtl; text-align: right; }
-        
-        /* الهيدر الداكن الفخم */
-        .header { background-color: #111111; color: #ffffff; text-align: center; padding: 40px 20px; border-radius: 0 0 20px 20px; margin-bottom: 30px; border-bottom: 3px solid #25d366; box-shadow: 0 6px 20px rgba(0,0,0,0.5); }
-        .header h1 { font-size: 38px; margin-bottom: 10px; font-weight: bold; color: #ffffff; }
-        .header p { display: inline-block; background-color: #222222; color: #25d366; font-size: 16px; font-weight: 600; padding: 8px 22px; border-radius: 20px; border: 1px solid #333333; }
-        
-        /* حاوية المنتجات */
-        .products-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1300px; margin: 0 auto; padding: 0 15px 50px 15px; }
-        .product-card { background: #242424; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.4); width: 360px; padding: 20px; border: 1px solid #333333; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease; }
-        .product-card:hover { transform: translateY(-5px); border-color: #25d366; }
-        
-        .product-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 1px solid #3d3d3d; }
-        .product-title { font-size: 21px; font-weight: bold; margin-bottom: 6px; color: #ffffff; }
-        .product-info { color: #aaaaaa; font-size: 14px; margin-bottom: 6px; font-weight: 600; }
-        .product-price { font-size: 20px; color: #25d366; font-weight: bold; margin-bottom: 15px; }
-        
-        label { font-size: 14px; font-weight: bold; color: #dddddd; margin-top: 10px; display: block; }
-        input, select { width: 100%; padding: 11px; margin-top: 5px; margin-bottom: 8px; border: 1px solid #444444; border-radius: 8px; font-size: 14px; outline: none; background-color: #1a1a1a; color: #ffffff; }
-        input:focus, select:focus { border-color: #25d366; background-color: #222222; }
-        
-        button { background-color: #25d366; color: #ffffff; border: none; padding: 13px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 17px; font-weight: bold; margin-top: 12px; transition: background 0.3s; box-shadow: 0 4px 10px rgba(37,211,102,0.2); }
-        button:hover { background-color: #1ebd56; }
-        .error-msg { color: #e74c3c; font-size: 12px; display: none; margin-top: 2px; margin-bottom: 8px; font-weight: bold; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', Tahoma, sans-serif;
+        }
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #2a2a2a;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #b0b0b0;
+            margin-bottom: 5px;
+        }
+        .form-group {
+            margin-top: 10px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 3px;
+            color: #ccc;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background-color: #2c2c2c;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        .btn-whatsapp:hover {
+            background-color: #1ebe5d;
+        }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>متجر خطوة إلى الأمام</h1>
-        <p>تشكيلة الأحذية الفاخرة والعصرية بين يديك</p>
-    </div>
+    <header>
+        <h1>خطوة إلى الأمام (Khotwa Shoes)</h1>
+        <p>اختر منتجك، أدخل بياناتك، واطلب مباشرة عبر الواتساب</p>
+    </header>
 
-    <div class="products-container" id="productsGrid">
-        <!-- يتم توليد المنتجات الـ 35 ديناميكياً -->
+    <div class="container" id="products-container">
+        <!-- يتم توليد المنتجات ديناميكياً -->
     </div>
 
     <script>
-        // مصفوفة المنتجات الـ 35 مراجعة بالكامل ومطابقة للملفات في حاسوبك
         const products = [
-            { id: 2, title: "حذاء كاجوال مريح", code: "1015", color: "أزرق", price: "150 دينار", image: "shoe2.png" },
-            { id: 3, title: "حذاء كاجوال مريح", code: "1015", color: "سماوي / أزرق فاتح", price: "150 دينار", image: "shoe3.jpg" },
-            { id: 4, title: "حذاء كاجوال مريح", code: "1015", color: "أزرق مريح", price: "150 دينار", image: "shoe4.jpg" },
-            { id: 5, title: "حذاء كاجوال مريح", code: "1015", color: "كحلي / أزرق غامق", price: "150 دينار", image: "shoe5.jpg" },
-            { id: 6, title: "حذاء كاجوال مريح", code: "1015", color: "رمادي / بني", price: "150 دينار", image: "shoe6.jpg" },
-            { id: 7, title: "حذاء سبورت عصري", code: "1036", color: "أبيض × رمادي", price: "130 دينار", image: "shoe7.jpg" },
-            { id: 8, title: "حذاء سبورت عصري", code: "1036", color: "أبيض ناصع", price: "130 دينار", image: "shoe8.jpg" },
-            { id: 9, title: "حذاء عصري أبيض", code: "1034", color: "أبيض × برتقالي", price: "130 دينار", image: "shoe9.jpg" },
-            { id: 10, title: "حذاء عصري أبيض", code: "1034", color: "أبيض × أزرق", price: "130 دينار", image: "shoe10.jpg" },
-            { id: 11, title: "حذاء بيج كلاسيك", code: "1036", color: "بيج / كريمي", price: "130 دينار", image: "shoe11.jpg" },
-            { id: 12, title: "حذاء كاجوال خفيف", code: "1013", color: "أبيض × بني", price: "130 دينار", image: "shoe12.jpg" },
-            { id: 13, title: "حذاء كاجوال خفيف", code: "1013", color: "أسود × أبيض", price: "130 دينار", image: "shoe13.jpg" },
-            { id: 14, title: "حذاء كاجوال خفيف", code: "1013", color: "أبيض كلاسيك", price: "130 دينار", image: "shoe14.jpg" },
-            { id: 15, title: "حذاء بوت مرتفع", code: "1012", color: "أسود مرتفع", price: "130 دينار", image: "shoe15.jpg" },
-            { id: 16, title: "حذاء بوت مرتفع", code: "1012", color: "رمادي × أسود", price: "130 دينار", image: "shoe16.jpg" },
-            { id: 17, title: "حذاء بوت سبورت", code: "1012", color: "أسود سبورت", price: "130 دينار", image: "shoe17.jpg" },
-            { id: 18, title: "حذاء سبورت أزرق", code: "1030", color: "أبيض × أزرق", price: "130 دينار", image: "shoe18.jpg" },
-            { id: 19, title: "حذاء سبورت عصري", code: "1020", color: "أسود سبورت", price: "130 دينار", image: "shoe19.jpg" },
-            { id: 20, title: "حذاء سبورت رصاصي", code: "1020", color: "رمادي / رصاصي", price: "130 دينار", image: "shoe20.jpg" },
-            { id: 21, title: "حذاء سبورت أزرق", code: "1030", color: "أزرق × أبيض", price: "130 دينار", image: "shoe21.jpg" },
-            { id: 22, title: "حذاء سبورت عصري", code: "1020", color: "أسود × رمادي", price: "130 دينار", image: "shoe22.jpg" },
-            { id: 23, title: "حذاء خفيف ومريح", code: "1011", color: "أزرق ملكي", price: "95 دينار", image: "shoe23.jpg" },
-            { id: 24, title: "حذاء كاجوال شبابي", code: "1025", color: "رمادي × أسود", price: "130 دينار", image: "shoe24.jpg" },
-            { id: 25, title: "حذاء كاجوال شبابي", code: "1026", color: "أسود مريح", price: "130 دينار", image: "shoe25.jpg" },
-            { id: 26, title: "حذاء كاجوال شبابي", code: "1027", color: "أبيض رياضي", price: "130 دينار", image: "shoe26.jpg" },
-            { id: 27, title: "حذاء كاجوال شبابي", code: "1028", color: "كحلي سبورت", price: "130 دينار", image: "shoe27.jpg" },
-            { id: 28, title: "حذاء كاجوال شبابي", code: "1029", color: "أسود × رمادي", price: "130 دينار", image: "shoe28.jpg" },
-            { id: 29, title: "حذاء كاجوال شبابي", code: "1031", color: "بيج أنيق", price: "130 دينار", image: "shoe29.jpg" },
-            { id: 30, title: "حذاء سبورت أزرق", code: "1030", color: "أزرق مميز", price: "130 دينار", image: "shoe30.jpg" },
-            { id: 31, title: "حذاء رياضي عصري", code: "1032", color: "أبيض × أسود", price: "130 دينار", image: "shoe31.jpg" },
-            { id: 32, title: "حذاء سبورت خفيف", code: "1033", color: "رمادي فاتح", price: "130 دينار", image: "shoe32.jpg" },
-            { id: 33, title: "حذاء سبورت أزرق", code: "1030", color: "أزرق كلاسيك", price: "130 دينار", image: "shoe33.jpg" },
-            { id: 34, title: "حذاء سبورت أزرق", code: "1030", color: "أزرق غامق", price: "130 دينار", image: "shoe34.jpg" },
-            { id: 35, title: "حذاء كاجوال فاخر", code: "1037", color: "أسود ملكي", price: "150 دينار", image: "shoe35.jpg" }
+            { id: 2, name: "حذاء كاجوال مريح", code: "1015", color: "رمادي أسود", price: "150 دينار", image: "shoe2.png" },
+            { id: 3, name: "حذاء كاجوال مريح", code: "1015", color: "أسود كحلي", price: "150 دينار", image: "shoe3.jpg" },
+            { id: 4, name: "حذاء كاجوال مريح", code: "1015", color: "أزرق مريح", price: "150 دينار", image: "shoe4.jpg" },
+            { id: 5, name: "حذاء كاجوال مريح", code: "1015", color: "أزرق غامق", price: "150 دينار", image: "shoe5.jpg" },
+            { id: 6, name: "حذاء بيج كلاسيك", code: "1013", color: "أبيض / بني", price: "130 دينار", image: "shoe6.jpg" },
+            { id: 7, name: "حذاء كاجوال مريح", code: "1036", color: "أبيض ناصع / أزرق", price: "130 دينار", image: "shoe7.jpg" },
+            { id: 8, name: "حذاء كاجوال خفيف", code: "1036", color: "أبيض ناصع", price: "130 دينار", image: "shoe8.jpg" },
+            { id: 9, name: "حذاء سبورت عصري", code: "1036", color: "كحلي أبيض", price: "130 دينار", image: "shoe9.jpg" },
+            { id: 10, name: "حذاء كاجوال خفيف", code: "1030", color: "أبيض أزرق", price: "130 دينار", image: "shoe10.jpg" },
+            { id: 11, name: "حذاء رياضي عصري", code: "1034", color: "أبيض رمادي", price: "130 دينار", image: "shoe11.jpg" },
+            { id: 13, name: "حذاء كاجوال خفيف", code: "1034", color: "أبيض + أسود", price: "130 دينار", image: "shoe13.jpg" },
+            { id: 14, name: "حذاء سبورت خفيف", code: "1033", color: "أبيض رمادي", price: "130 دينار", image: "shoe14.jpg" },
+            { id: 16, name: "حذاء بوت مرتفع", code: "1020", color: "رمادي / رصاصي", price: "130 دينار", image: "shoe16.jpg" },
+            { id: 17, name: "حذاء بوت سبورت", code: "1020", color: "أسود سبورت", price: "130 دينار", image: "shoe17.jpg" },
+            { id: 18, name: "حذاء عصري مميز", code: "1030", color: "أبيض أسود", price: "130 دينار", image: "shoe18.jpg" },
+            { id: 20, name: "حذاء سبورت مرتفع", code: "1012", color: "أسود مرتفع", price: "130 دينار", image: "shoe20.jpg" },
+            { id: 21, name: "حذاء سبورت أنيق", code: "1030", color: "أبيض أزرق", price: "130 دينار", image: "shoe21.jpg" },
+            { id: 22, name: "حذاء سبورت مريح", code: "1012", color: "أسود × رمادي", price: "130 دينار", image: "shoe22.jpg" },
+            { id: 23, name: "حذاء كاجوال شبابي", code: "1036", color: "أبيض ناصع أزرق", price: "130 دينار", image: "shoe23.jpg" },
+            { id: 25, name: "حذاء كاجوال شبابي", code: "1013", color: "أبيض أسود", price: "130 دينار", image: "shoe25.jpg" },
+            { id: 26, name: "حذاء مريح وأنيق", code: "1015", color: "بني كاجوال", price: "150 دينار", image: "shoe26.jpg" },
+            { id: 27, name: "حذاء كاجوال شبابي", code: "1015", color: "رمادي خفيف أسود", price: "150 دينار", image: "shoe27.jpg" },
+            { id: 28, name: "حذاء كاجوال شبابي", code: "1036", color: "أبيض رياضي", price: "130 دينار", image: "shoe28.jpg" },
+            { id: 29, name: "حذاء كاجوال أنيق", code: "1036", color: "أبيض ناصع", price: "130 دينار", image: "shoe29.jpg" },
+            { id: 30, name: "حذاء كاجوال فاخر", code: "1011", color: "أسود كاجوال", price: "95 دينار", image: "shoe30.jpg" },
+            { id: 31, name: "حذاء سبورت عصري", code: "1036", color: "أبيض ناصع", price: "130 دينار", image: "shoe31.jpg" },
+            { id: 32, name: "حذاء سبورت عصري", code: "1036", color: "أبيض ناصع برتقالي", price: "130 دينار", image: "shoe32.jpg" },
+            { id: 33, name: "حذاء سبورت عصري", code: "1011", color: "أسود كحلي", price: "95 دينار", image: "shoe33.jpg" },
+            { id: 34, name: "حذاء سبورت عصري", code: "1011", color: "رمادي خفيف أبيض", price: "95 دينار", image: "shoe34.jpg" },
+            { id: 35, name: "حذاء سبورت عصري", code: "1011", color: "أزرق ملكي", price: "95 دينار", image: "shoe35.jpg" }
         ];
 
-        const container = document.getElementById('productsGrid');
+        const container = document.getElementById('products-container');
 
-        products.forEach(p => {
-            const cardHtml = `
-                <div class="product-card">
-                    <div>
-                        <img src="${p.image}" alt="${p.title}">
-                        <div class="product-title">${p.title}</div>
-                        <div class="product-info">كود المنتج: ${p.code} | اللون: ${p.color}</div>
-                        <div class="product-price">السعر: ${p.price}</div>
-                    </div>
-                    <form onsubmit="sendWhatsAppOrder(event, '${p.title}', '${p.code}', '${p.color}', '${p.price}', '${p.image}', 'name_${p.id}', 'phone_${p.id}', 'size_${p.id}', 'qty_${p.id}', 'address_${p.id}', 'err_${p.id}')">
-                        <label>الاسم الثلاثي *</label>
-                        <input type="text" id="name_${p.id}" placeholder="أدخل اسمك الثلاثي" required>
-
-                        <label>رقم الهاتف *</label>
-                        <input type="text" id="phone_${p.id}" placeholder="09X XXXXXXX" required>
-
-                        <label>المقاس المطلوب *</label>
-                        <select id="size_${p.id}" required>
-                            <option value="">اختر المقاس</option>
-                            <option value="40">40</option>
-                            <option value="41">41</option>
-                            <option value="42">42</option>
-                            <option value="43">43</option>
-                            <option value="44">44</option>
-                            <option value="45">45</option>
-                        </select>
-
-                        <label>الكمية المطلوبة *</label>
-                        <input type="number" id="qty_${p.id}" value="1" min="1" required>
-
-                        <label>العنوان بالتفصيل *</label>
-                        <input type="text" id="address_${p.id}" placeholder="أدخل عنوانك (المدينة، المنطقة، الشارع)" required>
-                        <p id="err_${p.id}" class="error-msg">الرجاء إدخال العنوان والمقاس لتفعيل الطلب</p>
-
-                        <button type="submit">طلب عبر الواتساب</button>
-                    </form>
-                </div>
-            `;
-            container.innerHTML += cardHtml;
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = 
+                '<div>' +
+                    '<img src="' + product.image + '" alt="' + product.name + '" onerror="this.src=\'https://via.placeholder.com/300x220?text=Khotwa+Shoes\'">' +
+                    '<h3>' + product.name + '</h3>' +
+                    '<p><strong>كود المنتج:</strong> ' + product.code + '</p>' +
+                    '<p><strong>اللون:</strong> ' + product.color + '</p>' +
+                    '<p><strong>السعر:</strong> ' + product.price + '</p>' +
+                '</div>' +
+                '<div>' +
+                    '<div class="form-group">' +
+                        '<label>المقاس المطلوب *</label>' +
+                        '<select id="size-' + product.id + '" required>' +
+                            '<option value="">اختر المقاس</option>' +
+                            '<option value="40">40</option>' +
+                            '<option value="41">41</option>' +
+                            '<option value="42">42</option>' +
+                            '<option value="43">43</option>' +
+                            '<option value="44">44</option>' +
+                            '<option value="45">45</option>' +
+                        '</select>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                        '<label>الاسم الثلاثي *</label>' +
+                        '<input type="text" id="name-' + product.id + '" placeholder="أدخل اسمك الثلاثي" required>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                        '<label>رقم الهاتف *</label>' +
+                        '<input type="tel" id="phone-' + product.id + '" placeholder="09X XXXXXXX" required>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                        '<label>العنوان (المدينة، المنطقة، الشارع) *</label>' +
+                        '<input type="text" id="address-' + product.id + '" placeholder="أدخل عنوانك بالتفصيل" required>' +
+                    '</div>' +
+                    '<button class="btn-whatsapp" onclick="sendOrder(' + product.id + ')">طلب عبر الواتساب</button>' +
+                '</div>';
+            container.appendChild(card);
         });
 
-        function sendWhatsAppOrder(event, title, code, color, price, imageName, nameId, phoneId, sizeId, qtyId, addressId, errorId) {
-            event.preventDefault();
+        function sendOrder(id) {
+            const product = products.find(p => p.id === id);
+            const size = document.getElementById("size-" + id).value;
+            const name = document.getElementById("name-" + id).value.trim();
+            const phone = document.getElementById("phone-" + id).value.trim();
+            const address = document.getElementById("address-" + id).value.trim();
 
-            // رقم صاحب محل الأحذية (خطوة إلى الأمام)
-            const sellerPhone = "218926192882";
-
-            const nameInput = document.getElementById(nameId).value.trim();
-            const phoneInput = document.getElementById(phoneId).value.trim();
-            const sizeInput = document.getElementById(sizeId).value;
-            const qtyInput = document.getElementById(qtyId).value.trim();
-            const addressInput = document.getElementById(addressId).value.trim();
-            const errAddress = document.getElementById(errorId);
-            
-            if (addressInput === "" || sizeInput === "") {
-                errAddress.style.display = "block";
+            if (!size || !name || !phone || !address) {
+                alert("الرجاء تعبئة جميع الحقول الإجبارية (المقاس، الاسم، الهاتف، العنوان)!");
                 return;
-            } else {
-                errAddress.style.display = "none";
             }
 
-            // توليد الرابط المباشر الصحيح للصورة حسب عنوان الموقع دون أي خطأ 404
-            const fullImageUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1) + imageName;
+            const currentDomain = window.location.origin;
+            const imageUrl = currentDomain + "/" + product.image;
 
-            // نص الرسالة الشامل والمطابق لجميع الطلبات
-            const message = "تأكيد طلب جديد من متجر خطوة إلى الأمام%0A" +
-                            "---------------------------------%0A" +
-                            "رابط الصورة: " + fullImageUrl + "%0A" +
-                            "اسم المنتج: " + encodeURIComponent(title) + "%0A" +
-                            "رقم الكود: " + encodeURIComponent(code) + "%0A" +
-                            "اللون: " + encodeURIComponent(color) + "%0A" +
-                            "السعر: " + encodeURIComponent(price) + "%0A" +
-                            "المقاس: " + encodeURIComponent(sizeInput) + "%0A" +
-                            "الكمية: " + encodeURIComponent(qtyInput) + "%0A" +
-                            "الاسم الثلاثي: " + encodeURIComponent(nameInput) + "%0A" +
-                            "رقم الهاتف: " + encodeURIComponent(phoneInput) + "%0A" +
-                            "العنوان: " + encodeURIComponent(addressInput);
+            const message = "طلب حذاء جديد - متجر خطوة إلى الأمام\n\n" +
+                "رابط الصورة: " + imageUrl + "\n" +
+                "اسم المنتج: " + product.name + "\n" +
+                "كود المنتج: " + product.code + "\n" +
+                "اللون: " + product.color + "\n" +
+                "السعر: " + product.price + "\n" +
+                "المقاس الإجباري: " + size + "\n" +
+                "الكمية: 1\n" +
+                "الاسم الثلاثي: " + name + "\n" +
+                "رقم الهاتف: " + phone + "\n" +
+                "العنوان الإجباري: " + address;
 
-            const whatsappUrl = "https://wa.me/" + sellerPhone + "?text=" + message;
+            const merchantPhone = "218926192882";
+            const whatsappUrl = "https://wa.me/" + merchantPhone + "?text=" + encodeURIComponent(message);
             window.open(whatsappUrl, '_blank');
         }
     </script>
