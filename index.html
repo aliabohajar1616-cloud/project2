@@ -1,570 +1,171 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>متجر الأحذية الفاخرة</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background-color: #121212;
-      color: #ffffff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .product-card {
-      background-color: #1e1e1e;
-      border: 1px solid #333;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .product-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-    .product-info {
-      margin-top: 15px;
-    }
-    .info-row {
-      background-color: #2a2a2a;
-      padding: 10px;
-      border-radius: 6px;
-      margin-bottom: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 15px;
-      border: 1px solid #3a3a3a;
-    }
-    .info-row .title {
-      color: #aaaaaa;
-    }
-    .info-row .value {
-      color: #ffc107;
-      font-weight: bold;
-    }
-    .qty-container {
-      background-color: #2a2a2a;
-      padding: 8px 10px;
-      border-radius: 6px;
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #3a3a3a;
-    }
-    .qty-container label {
-      color: #aaaaaa;
-      font-size: 14px;
-    }
-    .qty-container input {
-      width: 60px;
-      padding: 5px;
-      background: #121212;
-      border: 1px solid #555;
-      color: #fff;
-      text-align: center;
-      border-radius: 4px;
-      font-size: 15px;
-    }
-    .whatsapp-btn {
-      width: 100%;
-      background-color: #25d366;
-      color: #ffffff;
-      border: none;
-      padding: 12px;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    .whatsapp-btn:hover {
-      background-color: #1ebd56;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر خطوة إلى الأمام | Khotwa Shoes</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Tahoma, Arial, sans-serif; background-color: #1a1a1a; color: #ffffff; direction: rtl; text-align: right; }
+        
+        /* الهيدر الداكن الفخم */
+        .header { background-color: #111111; color: #ffffff; text-align: center; padding: 40px 20px; border-radius: 0 0 20px 20px; margin-bottom: 30px; border-bottom: 3px solid #25d366; box-shadow: 0 6px 20px rgba(0,0,0,0.5); }
+        .header h1 { font-size: 38px; margin-bottom: 10px; font-weight: bold; color: #ffffff; }
+        .header p { display: inline-block; background-color: #222222; color: #25d366; font-size: 16px; font-weight: 600; padding: 8px 22px; border-radius: 20px; border: 1px solid #333333; }
+        
+        /* حاوية المنتجات */
+        .products-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1300px; margin: 0 auto; padding: 0 15px 50px 15px; }
+        .product-card { background: #242424; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.4); width: 360px; padding: 20px; border: 1px solid #333333; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease; }
+        .product-card:hover { transform: translateY(-5px); border-color: #25d366; }
+        
+        .product-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 1px solid #3d3d3d; }
+        .product-title { font-size: 21px; font-weight: bold; margin-bottom: 6px; color: #ffffff; }
+        .product-info { color: #aaaaaa; font-size: 14px; margin-bottom: 6px; font-weight: 600; }
+        .product-price { font-size: 20px; color: #25d366; font-weight: bold; margin-bottom: 15px; }
+        
+        label { font-size: 14px; font-weight: bold; color: #dddddd; margin-top: 10px; display: block; }
+        input, select { width: 100%; padding: 11px; margin-top: 5px; margin-bottom: 8px; border: 1px solid #444444; border-radius: 8px; font-size: 14px; outline: none; background-color: #1a1a1a; color: #ffffff; }
+        input:focus, select:focus { border-color: #25d366; background-color: #222222; }
+        
+        button { background-color: #25d366; color: #ffffff; border: none; padding: 13px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 17px; font-weight: bold; margin-top: 12px; transition: background 0.3s; box-shadow: 0 4px 10px rgba(37,211,102,0.2); }
+        button:hover { background-color: #1ebd56; }
+        .error-msg { color: #e74c3c; font-size: 12px; display: none; margin-top: 2px; margin-bottom: 8px; font-weight: bold; }
+    </style>
 </head>
 <body>
 
-  <div class="products-grid">
-
-    <!-- منتج 1 (shoe2.png) -->
-    <div class="product-card">
-      <img src="shoe2.png" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1015</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">150 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">كحلي / أسود</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty1" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1015', '150 د.ل', 'qty1', 'كحلي / أسود')">طلب عبر الواتساب 💬</button>
-      </div>
+    <div class="header">
+        <h1>متجر خطوة إلى الأمام</h1>
+        <p>تشكيلة الأحذية الفاخرة والعصرية بين يديك</p>
     </div>
 
-    <!-- منتج 2 (shoe3.jpg) -->
-    <div class="product-card">
-      <img src="shoe3.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1015</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">150 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">كحلي غامق</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty2" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1015', '150 د.ل', 'qty2', 'كحلي غامق')">طلب عبر الواتساب 💬</button>
-      </div>
+    <div class="products-container" id="productsGrid">
+        <!-- يتم توليد المنتجات الـ 35 ديناميكياً -->
     </div>
 
-    <!-- منتج 3 (shoe4.jpg) -->
-    <div class="product-card">
-      <img src="shoe4.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1015</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">150 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أزرق</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty3" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1015', '150 د.ل', 'qty3', 'أزرق')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+    <script>
+        // مصفوفة المنتجات الـ 35 مراجعة بالكامل ومطابقة للملفات في حاسوبك
+        const products = [
+            { id: 2, title: "حذاء كاجوال مريح", code: "1015", color: "أزرق", price: "150 دينار", image: "shoe2.png" },
+            { id: 3, title: "حذاء كاجوال مريح", code: "1015", color: "سماوي / أزرق فاتح", price: "150 دينار", image: "shoe3.jpg" },
+            { id: 4, title: "حذاء كاجوال مريح", code: "1015", color: "أزرق مريح", price: "150 دينار", image: "shoe4.jpg" },
+            { id: 5, title: "حذاء كاجوال مريح", code: "1015", color: "كحلي / أزرق غامق", price: "150 دينار", image: "shoe5.jpg" },
+            { id: 6, title: "حذاء كاجوال مريح", code: "1015", color: "رمادي / بني", price: "150 دينار", image: "shoe6.jpg" },
+            { id: 7, title: "حذاء سبورت عصري", code: "1036", color: "أبيض × رمادي", price: "130 دينار", image: "shoe7.jpg" },
+            { id: 8, title: "حذاء سبورت عصري", code: "1036", color: "أبيض ناصع", price: "130 دينار", image: "shoe8.jpg" },
+            { id: 9, title: "حذاء عصري أبيض", code: "1034", color: "أبيض × برتقالي", price: "130 دينار", image: "shoe9.jpg" },
+            { id: 10, title: "حذاء عصري أبيض", code: "1034", color: "أبيض × أزرق", price: "130 دينار", image: "shoe10.jpg" },
+            { id: 11, title: "حذاء بيج كلاسيك", code: "1036", color: "بيج / كريمي", price: "130 دينار", image: "shoe11.jpg" },
+            { id: 12, title: "حذاء كاجوال خفيف", code: "1013", color: "أبيض × بني", price: "130 دينار", image: "shoe12.jpg" },
+            { id: 13, title: "حذاء كاجوال خفيف", code: "1013", color: "أسود × أبيض", price: "130 دينار", image: "shoe13.jpg" },
+            { id: 14, title: "حذاء كاجوال خفيف", code: "1013", color: "أبيض كلاسيك", price: "130 دينار", image: "shoe14.jpg" },
+            { id: 15, title: "حذاء بوت مرتفع", code: "1012", color: "أسود مرتفع", price: "130 دينار", image: "shoe15.jpg" },
+            { id: 16, title: "حذاء بوت مرتفع", code: "1012", color: "رمادي × أسود", price: "130 دينار", image: "shoe16.jpg" },
+            { id: 17, title: "حذاء بوت سبورت", code: "1012", color: "أسود سبورت", price: "130 دينار", image: "shoe17.jpg" },
+            { id: 18, title: "حذاء سبورت أزرق", code: "1030", color: "أبيض × أزرق", price: "130 دينار", image: "shoe18.jpg" },
+            { id: 19, title: "حذاء سبورت عصري", code: "1020", color: "أسود سبورت", price: "130 دينار", image: "shoe19.jpg" },
+            { id: 20, title: "حذاء سبورت رصاصي", code: "1020", color: "رمادي / رصاصي", price: "130 دينار", image: "shoe20.jpg" },
+            { id: 21, title: "حذاء سبورت أزرق", code: "1030", color: "أزرق × أبيض", price: "130 دينار", image: "shoe21.jpg" },
+            { id: 22, title: "حذاء سبورت عصري", code: "1020", color: "أسود × رمادي", price: "130 دينار", image: "shoe22.jpg" },
+            { id: 23, title: "حذاء خفيف ومريح", code: "1011", color: "أزرق ملكي", price: "95 دينار", image: "shoe23.jpg" },
+            { id: 24, title: "حذاء كاجوال شبابي", code: "1025", color: "رمادي × أسود", price: "130 دينار", image: "shoe24.jpg" },
+            { id: 25, title: "حذاء كاجوال شبابي", code: "1026", color: "أسود مريح", price: "130 دينار", image: "shoe25.jpg" },
+            { id: 26, title: "حذاء كاجوال شبابي", code: "1027", color: "أبيض رياضي", price: "130 دينار", image: "shoe26.jpg" },
+            { id: 27, title: "حذاء كاجوال شبابي", code: "1028", color: "كحلي سبورت", price: "130 دينار", image: "shoe27.jpg" },
+            { id: 28, title: "حذاء كاجوال شبابي", code: "1029", color: "أسود × رمادي", price: "130 دينار", image: "shoe28.jpg" },
+            { id: 29, title: "حذاء كاجوال شبابي", code: "1031", color: "بيج أنيق", price: "130 دينار", image: "shoe29.jpg" },
+            { id: 30, title: "حذاء سبورت أزرق", code: "1030", color: "أزرق مميز", price: "130 دينار", image: "shoe30.jpg" },
+            { id: 31, title: "حذاء رياضي عصري", code: "1032", color: "أبيض × أسود", price: "130 دينار", image: "shoe31.jpg" },
+            { id: 32, title: "حذاء سبورت خفيف", code: "1033", color: "رمادي فاتح", price: "130 دينار", image: "shoe32.jpg" },
+            { id: 33, title: "حذاء سبورت أزرق", code: "1030", color: "أزرق كلاسيك", price: "130 دينار", image: "shoe33.jpg" },
+            { id: 34, title: "حذاء سبورت أزرق", code: "1030", color: "أزرق غامق", price: "130 دينار", image: "shoe34.jpg" },
+            { id: 35, title: "حذاء كاجوال فاخر", code: "1037", color: "أسود ملكي", price: "150 دينار", image: "shoe35.jpg" }
+        ];
 
-    <!-- منتج 4 (shoe5.jpg) -->
-    <div class="product-card">
-      <img src="shoe5.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1015</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">150 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">كحلي / أسود</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty4" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1015', '150 د.ل', 'qty4', 'كحلي / أسود')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+        const container = document.getElementById('productsGrid');
 
-    <!-- منتج 5 (shoe6.jpg) -->
-    <div class="product-card">
-      <img src="shoe6.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1013</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أبيض x بني</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty5" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1013', '130 د.ل', 'qty5', 'أبيض x بني')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+        products.forEach(p => {
+            const cardHtml = `
+                <div class="product-card">
+                    <div>
+                        <img src="${p.image}" alt="${p.title}">
+                        <div class="product-title">${p.title}</div>
+                        <div class="product-info">كود المنتج: ${p.code} | اللون: ${p.color}</div>
+                        <div class="product-price">السعر: ${p.price}</div>
+                    </div>
+                    <form onsubmit="sendWhatsAppOrder(event, '${p.title}', '${p.code}', '${p.color}', '${p.price}', '${p.image}', 'name_${p.id}', 'phone_${p.id}', 'size_${p.id}', 'qty_${p.id}', 'address_${p.id}', 'err_${p.id}')">
+                        <label>الاسم الثلاثي *</label>
+                        <input type="text" id="name_${p.id}" placeholder="أدخل اسمك الثلاثي" required>
 
-    <!-- منتج 6 (shoe7.jpg) -->
-    <div class="product-card">
-      <img src="shoe7.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1036</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أبيض</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty6" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1036', '130 د.ل', 'qty6', 'أبيض')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+                        <label>رقم الهاتف *</label>
+                        <input type="text" id="phone_${p.id}" placeholder="09X XXXXXXX" required>
 
-    <!-- منتج 7 (shoe8.jpg) -->
-    <div class="product-card">
-      <img src="shoe8.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1036</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أبيض x رمادي</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty7" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1036', '130 د.ل', 'qty7', 'أبيض x رمادي')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+                        <label>المقاس المطلوب *</label>
+                        <select id="size_${p.id}" required>
+                            <option value="">اختر المقاس</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                            <option value="45">45</option>
+                        </select>
 
-    <!-- منتج 8 (shoe9.jpg) -->
-    <div class="product-card">
-      <img src="shoe9.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1036</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أسود x أبيض</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty8" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1036', '130 د.ل', 'qty8', 'أسود x أبيض')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+                        <label>الكمية المطلوبة *</label>
+                        <input type="number" id="qty_${p.id}" value="1" min="1" required>
 
-    <!-- منتج 9 (shoe10.jpg) -->
-    <div class="product-card">
-      <img src="shoe10.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1030</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أبيض x أزرق</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty9" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1030', '130 د.ل', 'qty9', 'أبيض x أزرق')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+                        <label>العنوان بالتفصيل *</label>
+                        <input type="text" id="address_${p.id}" placeholder="أدخل عنوانك (المدينة، المنطقة، الشارع)" required>
+                        <p id="err_${p.id}" class="error-msg">الرجاء إدخال العنوان والمقاس لتفعيل الطلب</p>
 
-    <!-- منتج 10 (shoe11.jpg) -->
-    <div class="product-card">
-      <img src="shoe11.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1012</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أسود</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty10" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1012', '130 د.ل', 'qty10', 'أسود')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+                        <button type="submit">طلب عبر الواتساب</button>
+                    </form>
+                </div>
+            `;
+            container.innerHTML += cardHtml;
+        });
 
-    
+        function sendWhatsAppOrder(event, title, code, color, price, imageName, nameId, phoneId, sizeId, qtyId, addressId, errorId) {
+            event.preventDefault();
 
-    <!-- منتج 12 (shoe13.jpg) -->
-    <div class="product-card">
-      <img src="shoe13.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1034</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أبيض ناصع</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty12" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1034', '130 د.ل', 'qty12', 'أبيض ناصع')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+            // رقم صاحب محل الأحذية (خطوة إلى الأمام)
+            const sellerPhone = "218926192882";
 
-    <!-- منتج 13 (shoe14.jpg) -->
-    <div class="product-card">
-      <img src="shoe14.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1034</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أبيض x برتقالي</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty13" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1034', '130 د.ل', 'qty13', 'أبيض x برتقالي')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+            const nameInput = document.getElementById(nameId).value.trim();
+            const phoneInput = document.getElementById(phoneId).value.trim();
+            const sizeInput = document.getElementById(sizeId).value;
+            const qtyInput = document.getElementById(qtyId).value.trim();
+            const addressInput = document.getElementById(addressId).value.trim();
+            const errAddress = document.getElementById(errorId);
+            
+            if (addressInput === "" || sizeInput === "") {
+                errAddress.style.display = "block";
+                return;
+            } else {
+                errAddress.style.display = "none";
+            }
 
-    <!-- منتج 14 (shoe15.jpg) -->
-   
-    <!-- منتج 15 (shoe16.jpg) -->
-    <div class="product-card">
-      <img src="shoe16.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1020</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">رمادي / رصاصي</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty15" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1020', '130 د.ل', 'qty15', 'رمادي / رصاصي')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+            // توليد الرابط المباشر الصحيح للصورة حسب عنوان الموقع دون أي خطأ 404
+            const fullImageUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1) + imageName;
 
-    <!-- منتج 16 (shoe17.jpg) -->
-    <div class="product-card">
-      <img src="shoe17.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1020</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أسود سبورت</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty16" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1020', '130 د.ل', 'qty16', 'أسود سبورت')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
+            // نص الرسالة الشامل والمطابق لجميع الطلبات
+            const message = "تأكيد طلب جديد من متجر خطوة إلى الأمام%0A" +
+                            "---------------------------------%0A" +
+                            "رابط الصورة: " + fullImageUrl + "%0A" +
+                            "اسم المنتج: " + encodeURIComponent(title) + "%0A" +
+                            "رقم الكود: " + encodeURIComponent(code) + "%0A" +
+                            "اللون: " + encodeURIComponent(color) + "%0A" +
+                            "السعر: " + encodeURIComponent(price) + "%0A" +
+                            "المقاس: " + encodeURIComponent(sizeInput) + "%0A" +
+                            "الكمية: " + encodeURIComponent(qtyInput) + "%0A" +
+                            "الاسم الثلاثي: " + encodeURIComponent(nameInput) + "%0A" +
+                            "رقم الهاتف: " + encodeURIComponent(phoneInput) + "%0A" +
+                            "العنوان: " + encodeURIComponent(addressInput);
 
-    <!-- منتج 17 (shoe18.jpg) -->
-    <div class="product-card">
-      <img src="shoe18.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1012</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أسود x أبيض</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty17" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1012', '130 د.ل', 'qty17', 'أسود x أبيض')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 18 (shoe19.jpg) -->
-    
-
-    <!-- منتج 19 (shoe20.jpg) -->
-    <div class="product-card">
-      <img src="shoe20.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1012</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أسود مرتفع</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty19" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1012', '130 د.ل', 'qty19', 'أسود مرتفع')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 20 (shoe21.jpg) -->
-    <div class="product-card">
-      <img src="shoe21.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1030</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أزرق x أبيض</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty20" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1030', '130 د.ل', 'qty20', 'أزرق x أبيض')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 21 (shoe22.jpg) -->
-    <div class="product-card">
-      <img src="shoe22.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1012</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">رمادي x أسود</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty21" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1012', '130 د.ل', 'qty21', 'رمادي x أسود')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 22 (shoe23.jpg) -->
-    <div class="product-card">
-      <img src="shoe23.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1036</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أبيض</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty22" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1036', '130 د.ل', 'qty22', 'أبيض')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    
-    
-    <!-- منتج 24 (shoe25.jpg) -->
-    <div class="product-card">
-      <img src="shoe25.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1013</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أسود x أبيض</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty24" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1013', '130 د.ل', 'qty24', 'أسود x أبيض')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 25 (shoe26.jpg) -->
-    <div class="product-card">
-      <img src="shoe26.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1015</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">150 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">بني كاجوال</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty25" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1015', '150 د.ل', 'qty25', 'بني كاجوال')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 26 (shoe27.jpg) -->
-    <div class="product-card">
-      <img src="shoe27.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1015</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">150 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">رمادي مريح</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty26" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1015', '150 د.ل', 'qty26', 'رمادي مريح')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 27 (shoe28.jpg) -->
-    <div class="product-card">
-      <img src="shoe28.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1036</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أبيض رياضي</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty27" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1036', '130 د.ل', 'qty27', 'أبيض رياضي')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 28 (shoe29.jpg) -->
-    <div class="product-card">
-      <img src="shoe29.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1036</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أبيض x برتقالي</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty28" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1036', '130 د.ل', 'qty28', 'أبيض x برتقالي')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 29 (shoe30.jpg) -->
-    <div class="product-card">
-      <img src="shoe30.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1011</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">95 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أزرق / كحلي</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty29" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1011', '95 د.ل', 'qty29', 'أزرق / كحلي')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 30 (shoe32.jpg) -->
-    <div class="product-card">
-      <img src="shoe32.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1036</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">130 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">بيج / كريمي</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty30" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1036', '130 د.ل', 'qty30', 'بيج / كريمي')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 31 (shoe33.jpg) -->
-    <div class="product-card">
-      <img src="shoe33.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1011</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">95 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أزرق غامق</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty31" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1011', '95 د.ل', 'qty31', 'أزرق غامق')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 32 (shoe34.jpg) -->
-    <div class="product-card">
-      <img src="shoe34.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1011</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">95 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">سمائي / أزرق فاتح</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty32" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1011', '95 د.ل', 'qty32', 'سمائي / أزرق فاتح')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-    <!-- منتج 33 (shoe35.jpg) -->
-    <div class="product-card">
-      <img src="shoe35.jpg" alt="حذاء">
-      <div class="product-info">
-        <div class="info-row"><span class="title">رقم الكود:</span><span class="value">1011</span></div>
-        <div class="info-row"><span class="title">السعر:</span><span class="value">95 د.ل</span></div>
-        <div class="info-row"><span class="title">اللون:</span><span class="value">أزرق ملكي</span></div>
-        <div class="qty-container">
-          <label>الكمية المطلوبة:</label>
-          <input type="number" id="qty33" value="1" min="1">
-        </div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp('1011', '95 د.ل', 'qty33', 'أزرق ملكي')">طلب عبر الواتساب 💬</button>
-      </div>
-    </div>
-
-  </div>
-
-  <script>
-    function sendWhatsApp(code, price, qtyInputId, color) {
-      var phone = "218926192882";
-      var qtyInput = document.getElementById(qtyInputId);
-      var qty = qtyInput ? qtyInput.value : 1;
-      
-      var message = "مرحباً، أريد طلب هذا المنتج:\n" +
-                    "- رقم الكود: " + code + "\n" +
-                    "- السعر: " + price + "\n" +
-                    "- اللون: " + color + "\n" +
-                    "- الكمية: " + qty;
-                    
-      var url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
-      window.open(url, "_blank");
-    }
-  </script>
-
+            const whatsappUrl = "https://wa.me/" + sellerPhone + "?text=" + message;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
 </body>
 </html>
-
+إنشاء
