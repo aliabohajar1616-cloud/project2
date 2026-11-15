@@ -75,7 +75,8 @@
             margin-bottom: 3px;
             color: #d4af37;
         }
-        .form-group input {
+        .form-group input,
+        .form-group select {
             width: 100%;
             padding: 8px;
             border-radius: 5px;
@@ -111,45 +112,51 @@
     <div class="container" id="products-container">
         <!-- يتم توليد المنتجات ديناميكياً -->
     </div>
-
-    <script>
-        const products = [
-            { id: 2, name: "حذاء كاجوال مريح", code: "1015", color: "رمادي أسود", price: "150 دينار", image: "shoe2.png" },
-            { id: 3, name: "حذاء كاجوال مريح", code: "1015", color: "أسود كحلي", price: "150 دينار", image: "shoe3.jpg" },
-            { id: 4, name: "حذاء كاجوال مريح", code: "1015", color: "أزرق مريح", price: "150 دينار", image: "shoe4.jpg" },
-            { id: 5, name: "حذاء كاجوال مريح", code: "1015", color: "أزرق غامق", price: "150 دينار", image: "shoe5.jpg" },
-            { id: 6, name: "حذاء بيج كلاسيك", code: "1013", color: "أبيض / بني", price: "130 دينار", image: "shoe6.jpg" },
-            { id: 7, name: "حذاء كاجوال مريح", code: "1036", color: "أبيض ناصع / أزرق", price: "130 دينار", image: "shoe7.jpg" },
-            { id: 8, name: "حذاء كاجوال خفيف", code: "1036", color: "أبيض ناصع", price: "130 دينار", image: "shoe8.jpg" },
-            { id: 9, name: "حذاء سبورت عصري", code: "1036", color: "كحلي أبيض", price: "130 دينار", image: "shoe9.jpg" },
-            { id: 10, name: "حذاء كاجوال خفيف", code: "1030", color: "أبيض أزرق", price: "130 دينار", image: "shoe10.jpg" },
-            { id: 11, name: "حذاء رياضي عصري", code: "1034", color: "أبيض رمادي", price: "130 دينار", image: "shoe11.jpg" },
-            { id: 13, name: "حذاء كاجوال خفيف", code: "1034", color: "أبيض + أسود", price: "130 دينار", image: "shoe13.jpg" },
-            { id: 14, name: "حذاء سبورت خفيف", code: "1033", color: "أبيض رمادي", price: "130 دينار", image: "shoe14.jpg" },
-            { id: 16, name: "حذاء بوت مرتفع", code: "1020", color: "رمادي / رصاصي", price: "130 دينار", image: "shoe16.jpg" },
-            { id: 17, name: "حذاء بوت سبورت", code: "1020", color: "أسود سبورت", price: "130 دينار", image: "shoe17.jpg" },
-            { id: 18, name: "حذاء عصري مميز", code: "1030", color: "أبيض أسود", price: "130 دينار", image: "shoe18.jpg" },
-            { id: 20, name: "حذاء سبورت مرتفع", code: "1012", color: "أسود مرتفع", price: "130 دينار", image: "shoe20.jpg" },
-            { id: 21, name: "حذاء سبورت أنيق", code: "1030", color: "أبيض أزرق", price: "130 دينار", image: "shoe21.jpg" },
-            { id: 22, name: "حذاء سبورت مريح", code: "1012", color: "أسود × رمادي", price: "130 دينار", image: "shoe22.jpg" },
-            { id: 23, name: "حذاء كاجوال شبابي", code: "1036", color: "أبيض ناصع أزرق", price: "130 دينار", image: "shoe23.jpg" },
-            { id: 25, name: "حذاء كاجوال شبابي", code: "1013", color: "أبيض أسود", price: "130 دينار", image: "shoe25.jpg" },
-            { id: 26, name: "حذاء مريح وأنيق", code: "1015", color: "بني كاجوال", price: "150 دينار", image: "shoe26.jpg" },
-            { id: 27, name: "حذاء كاجوال شبابي", code: "1015", color: "رمادي خفيف أسود", price: "150 دينار", image: "shoe27.jpg" },
-            { id: 28, name: "حذاء كاجوال شبابي", code: "1036", color: "أبيض رياضي", price: "130 دينار", image: "shoe28.jpg" },
-            { id: 29, name: "حذاء كاجوال أنيق", code: "1036", color: "أبيض ناصع", price: "130 دينار", image: "shoe29.jpg" },
-            { id: 30, name: "حذاء كاجوال فاخر", code: "1011", color: "أسود كاجوال", price: "95 دينار", image: "shoe30.jpg" },
-            { id: 31, name: "حذاء سبورت عصري", code: "1036", color: "أبيض ناصع", price: "130 دينار", image: "shoe31.jpg" },
-            { id: 32, name: "حذاء سبورت عصري", code: "1036", color: "أبيض ناصع برتقالي", price: "130 دينار", image: "shoe32.jpg" },
-            { id: 33, name: "حذاء سبورت عصري", code: "1011", color: "أسود كحلي", price: "95 دينار", image: "shoe33.jpg" },
-            { id: 34, name: "حذاء سبورت عصري", code: "1011", color: "رمادي خفيف أبيض", price: "95 دينار", image: "shoe34.jpg" },
-            { id: 35, name: "حذاء سبورت عصري", code: "1011", color: "أزرق ملكي", price: "95 دينار", image: "shoe35.jpg" }
+    
+    <script>                                                                                                                                                                
+        const products = [                                                                                                                                                 
+            { id: 2, name: "حذاء كاجوال مريح", code: "1015", color: "رمادي أسود", price: "150 دينار", image: "shoe2.png", sizes: ["40","41", "42", "43", "44", "45"] },
+            { id: 3, name: "حذاء كاجوال مريح", code: "1015", color: "أسود كحلي", price: "150 دينار", image: "shoe3.jpg", sizes: ["40","41", "42", "43", "44", "45"] },
+            { id: 4, name: "حذاء كاجوال مريح", code: "1015", color: "أزرق مريح", price: "150 دينار", image: "shoe4.jpg", sizes: ['40',"41", "42", "43", "44", "45"] },
+            { id: 5, name: "حذاء كاجوال مريح", code: "1015", color: "أزرق غامق", price: "150 دينار", image: "shoe5.jpg", sizes: ['40',"41", "42", "43", "44", "45"] },
+            { id: 6, name: "حذاء بيج كلاسيك", code: "1013", color: "أبيض / بني", price: "130 دينار", image: "shoe6.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 7, name: "حذاء كاجوال مريح", code: "1036", color: "أبيض ناصع / أزرق", price: "130 دينار", image: "shoe7.jpg", sizes: ["","41", "42", "43", "44"] },
+            { id: 8, name: "حذاء كاجوال خفيف", code: "1036", color: "أبيض ناصع", price: "130 دينار", image: "shoe8.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 9, name: "حذاء سبورت عصري", code: "1036", color: "كحلي أبيض", price: "130 دينار", image: "shoe9.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 10, name: "حذاء كاجوال خفيف", code: "1030", color: "أبيض أزرق", price: "130 دينار", image: "shoe10.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 11, name: "حذاء رياضي عصري", code: "1034", color: "أبيض رمادي", price: "130 دينار", image: "shoe11.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 13, name: "حذاء كاجوال خفيف", code: "1034", color: "أبيض + أسود", price: "130 دينار", image: "shoe13.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 14, name: "حذاء سبورت خفيف", code: "1034", color: "أبيض رمادي", price: "130 دينار", image: "shoe14.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 16, name: "حذاء بوت مرتفع", code: "1020", color: "رمادي / رصاصي", price: "130 دينار", image: "shoe16.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 17, name: "حذاء بوت سبورت", code: "1020", color: "أسود سبورت", price: "130 دينار", image: "shoe17.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 18, name: "حذاء عصري مميز", code: "1030", color: "أبيض أسود", price: "130 دينار", image: "shoe18.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 20, name: "حذاء سبورت مرتفع", code: "1012", color: "أسود مرتفع", price: "130 دينار", image: "shoe20.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 21, name: "حذاء سبورت أنيق", code: "1030", color: "أبيض أزرق", price: "130 دينار", image: "shoe21.jpg", sizes: ['40',"41", "42", "43", "44", ] },
+            { id: 22, name: "حذاء سبورت مريح", code: "1012", color: "أسود × رمادي", price: "130 دينار", image: "shoe22.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 23, name: "حذاء كاجوال شبابي", code: "1036", color: "أبيض ناصع أزرق", price: "130 دينار", image: "shoe23.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 25, name: "حذاء كاجوال شبابي", code: "1013", color: "أبيض أسود", price: "130 دينار", image: "shoe25.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 26, name: "حذاء مريح وأنيق", code: "1015", color: "بني كاجوال", price: "150 دينار", image: "shoe26.jpg", sizes: ['40',"41", "42", "43", "44","45"] },
+            { id: 27, name: "حذاء كاجوال شبابي", code: "1015", color: "رمادي خفيف أسود", price: "150 دينار", image: "shoe27.jpg", sizes: ['40',"41", "42", "43", "44", "45"] },
+            { id: 28, name: "حذاء كاجوال شبابي", code: "1036", color: "أبيض رياضي", price: "130 دينار", image: "shoe28.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 29, name: "حذاء كاجوال أنيق", code: "1036", color: "أبيض ناصع", price: "130 دينار", image: "shoe29.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 30, name: "حذاء كاجوال فاخر", code: "1011", color: "أسود كاجوال", price: "95 دينار", image: "shoe30.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 31, name: "حذاء سبورت عصري", code: "1036", color: "أبيض ناصع", price: "130 دينار", image: "shoe31.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 32, name: "حذاء سبورت عصري", code: "1036", color: "أبيض ناصع برتقالي", price: "130 دينار", image: "shoe32.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 33, name: "حذاء سبورت عصري", code: "1011", color: "أسود كحلي", price: "95 دينار", image: "shoe33.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 34, name: "حذاء سبورت عصري", code: "1011", color: "رمادي خفيف أبيض", price: "95 دينار", image: "shoe34.jpg", sizes: ['40',"41", "42", "43", "44"] },
+            { id: 35, name: "حذاء سبورت عصري", code: "1011", color: "أزرق ملكي", price: "95 دينار", image: "shoe35.jpg", sizes: ['40',"41", "42", "43", "44"] }
         ];
 
         const container = document.getElementById('products-container');
 
         products.forEach(product => {
-            const card = document.createElement('div');
+            let sizeOptions = '';
+            product.sizes.forEach(size => {
+                const isSelected = (size === "40") ? ' selected' : '';
+                sizeOptions += '<option value="' + size + '"' + isSelected + '>مقاس ' + size + '</option>';
+            });
+
+            const card = document.createElement('div');    
             card.className = 'card';
             card.innerHTML = 
                 '<div>' +
@@ -160,6 +167,12 @@
                     '<p><strong>السعر:</strong> ' + product.price + '</p>' +
                 '</div>' +
                 '<div>' +
+                    '<div class="form-group">' +
+                        '<label>اختر المقاس *</label>' +
+                        '<select id="size-' + product.id + '">' +
+                            sizeOptions +
+                        '</select>' +
+                    '</div>' +
                     '<div class="form-group">' +
                         '<label>الكمية المطلوبة *</label>' +
                         '<input type="number" id="qty-' + product.id + '" value="1" min="1" required>' +
@@ -183,6 +196,7 @@
 
         function sendOrder(id) {
             const product = products.find(p => p.id === id);
+            const size = document.getElementById("size-" + id).value;
             const qty = document.getElementById("qty-" + id).value.trim();
             const name = document.getElementById("name-" + id).value.trim();
             const phone = document.getElementById("phone-" + id).value.trim();
@@ -193,7 +207,6 @@
                 return;
             }
 
-            // رابط الصورة الصحيح الذي يظهر مباشرة بدون خطأ 404
             const imageUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1) + product.image;
 
             const message = "طلب حذاء جديد - متجر خطوة إلى الأمام\n\n" +
@@ -201,6 +214,7 @@
                 "اسم المنتج: " + product.name + "\n" +
                 "كود المنتج: " + product.code + "\n" +
                 "اللون: " + product.color + "\n" +
+                "المقاس: " + size + "\n" +
                 "السعر: " + product.price + "\n" +
                 "الكمية المطلوبة: " + qty + "\n" +
                 "الاسم الثلاثي: " + name + "\n" +
@@ -214,4 +228,4 @@
     </script>
 </body>
 </html>
-إنشاء
+
